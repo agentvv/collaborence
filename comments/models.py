@@ -8,7 +8,7 @@ class Comment(models.Model):
     description = models.CharField(max_length=200)
     timeCreated = models.DateTimeField(default=now, editable=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1) 
-    slide = models.ForeignKey(Slide, on_delete=CASCADE, default=1)
+    slide = models.ForeignKey(Slide, on_delete=models.CASCADE, default=1)
     page = models.IntegerField(default=1)
 
     
