@@ -7,5 +7,8 @@ def index(response):
     return render(response, "home/base.html", {})
 
 def home(response):
-    userCourses = response.user.profile.courses.all()
-    return render(response, "home/home.html", {"courses":userCourses})
+    if response.user.is_authenticated:
+        userCourses = response.user.profile.courses.all()
+        return render(response, "home/home.html", {"courses":userCourses})
+    else:
+        return redirect('/')
