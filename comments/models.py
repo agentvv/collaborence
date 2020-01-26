@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from django.utils.timezone import now
 
 class Comment(models.Model):
@@ -16,3 +17,8 @@ class Reply(models.Model):
 
     def __str__(self):
         return ("Replied to comment.")
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['author', 'description']
