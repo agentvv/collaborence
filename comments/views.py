@@ -1,15 +1,17 @@
 from django.forms import modelformset_factory
 from django.shortcuts import render, redirect
 from .models import Comment
-
+from slides.models import Slide
 from .models import Comment, Reply
 from .forms import PartialCommentForm, PartialReplyForm
 
-def newComment(request):
+def newComment(request, num, num2):
     if request.method == 'POST':
         form  = PartialCommentForm(request.POST)
         comment = form.save(commit=False)
         comment.author = request.user
+        comment.slide = Slide.objects.get(id=num)
+        comment.page = num2
         comment.save()
         return redirect("/comments/"+str(comment.id))    
     else:
