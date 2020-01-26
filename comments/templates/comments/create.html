@@ -1,0 +1,10 @@
+{% extends 'slides/base.html' %}
+
+{% block content %}
+    <form method="POST">
+        <h1>Create a comment.</h1>
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Create Comment</button>
+    </form>
+{% endblock %}
