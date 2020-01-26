@@ -38,4 +38,4 @@ def course(response, num):
     title = "Click slides to view a slide deck"
     slides = Slide.objects.filter(course=Course.objects.get(id=num))
     section = "slides"
-    return render(response, 'courses/base.html', {"title":title, "list":slides, "section":section})
+    return render(response, 'courses/slides.html', {"title":title, "list":slides, "section":section, 'num':num})
