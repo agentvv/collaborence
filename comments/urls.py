@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.newComment),
-    path('<int:num>', views.viewComment),
+    path('<int:num>/', views.viewComment),
+    path('createReply/<int:num>', views.createReply),
 ]
