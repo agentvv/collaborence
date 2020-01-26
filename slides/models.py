@@ -6,5 +6,8 @@ class Slide(models.Model):
     fileName = models.CharField(max_length=50)
     course = models.ForeignKey('courses.Course', on_delete=models.CASCADE)
     
-    def __str__ (): 
-        return self.name
+    def __str__ (self): 
+        return self.title + ' for ' + self.course.Course.code + ' '
+
+    def getFileName(self):
+        return self.filename
