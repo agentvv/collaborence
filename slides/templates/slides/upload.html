@@ -5,7 +5,7 @@
     <h1>Upload a new slide deck for {{course}}</h1>
     {% csrf_token %}
     {{form}}
-    <button type="submit">Register</button>
+    <button type="submit">Upload</button>
 </form>
 {% if failed %}
 <h3> That file already exists! </h3>
