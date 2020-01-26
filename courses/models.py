@@ -1,13 +1,32 @@
-from django.db import models
+import datetime
 
-# Create your models here.
+from django.db import models
+from django.utils import timezone
+
 class School(models.Model):
-    school_name = models.CharField(max_length=50)
-    school_location = models.CharField(max_length=6, help_text='Example: ON, CA') # ON, CA
-    
-class Courses(models.Model):
-    school_name = models.ForeignKey(School, on_delete=models.CASCADE)
-    course_name = models.CharField(max_length=50)
-    course_department = models.CharField(max_length=50)
-    course_term = models.CharField(max_length=10)
-    course_id = models.CharField(max_length=10)
+	name = models.CharField(max_length=100)
+	location = models.CharField(max_length=100)
+
+	def __str__(self):
+		return self.name
+
+class Department(models.Model):
+	name = models.CharField(max_length=50)
+	shortForm = models.CharField(max_length=15)
+	school = models.ForeignKey(School, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.school.name + ' Department of ' + self.name
+
+class Course(models.Model):
+	department = models.ForeignKey(Department, on_delete=models.CASCADE)
+	code = models.CharField(max_length=10)
+	name = models.CharField(max_length=50)
+	description = models.CharField(max_length=250)
+
+	def __str__(self):
+		return self.department.shortForm + ' ' + self.code + ': ' + self.name
+
+	def getFullCode(self):
+		return self.department.shortForm + ' ' + self.code
+	
