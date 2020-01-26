@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'slides.apps.SlidesConfig',
     'register.apps.RegisterConfig',
+    'comments.apps.CommentsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
