@@ -6,8 +6,15 @@ Collaborence Login
 
 {% block content %}
 <form method="POST">
+    <h1>Login</h1>
     {% csrf_token %}
-    {{form}}
+
+    {{form.username.label_tag}}
+    {{form.username}}
+    <br>
+    {{form.password.label_tag}}
+    {{form.password}}
+    <br>
     <button type="submit">Login</button>
     <p>Don't have an account? Create one <a href="/register">here</a></p>
 </form>
