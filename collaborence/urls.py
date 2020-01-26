@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from home import views
+from slides import views
 
 urlpatterns = [
     path('', views.index),
     path('home/', views.home),
+    path('slides/', views.slides),
     path('admin/', admin.site.urls),
 ] 
