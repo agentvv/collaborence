@@ -13,10 +13,12 @@ def newComment(request, num, num2):
         comment.slide = Slide.objects.get(id=num)
         comment.page = num2
         comment.save()
+        
         return redirect("/comments/viewComment/"+str(comment.id))    
     else:
         comment = PartialCommentForm()
-        return render(request, 'comments/create.html', {'form':comment})
+        slideDeck = Slide.objects.get(id=num)
+        return render(request, 'comments/create.html', {'form':comment, 'slideDeck':slideDeck})
 
 def viewComment(response, num):
     comment = Comment.objects.get(id=num)
