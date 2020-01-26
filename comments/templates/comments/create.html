@@ -2,7 +2,7 @@
 
 {% block content %}
     <form method="POST">
-        <h1>Create a comment for such and such a slide deck page.</h1>
+        <h1>Create a comment for {{slideDeck}}</h1>
         {% csrf_token %}
         {{form}}
         <button type="submit">Create Comment</button>

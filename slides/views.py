@@ -7,6 +7,7 @@ from .forms import UploadSlideForm
 
 from .models import Slide
 from courses.models import Course
+from comments.models import Comment
 
 import os
 import sys
@@ -17,7 +18,8 @@ def view(response, num, page):
         slide = Slide.objects.get(pk=num)
         courseNum = slide.course.id
         fileName = 'slides/' + slide.fileName + '/' + slide.title + ' ' + str(page) +'.pdf'
-        return render(response, 'slides/view.html', {"fileName":fileName, "courseNum":courseNum, 'num': num, 'pageNum':page});
+        comments = Comment.objects.filter(slide=Slide.objects.get(id=num))
+        return render(response, 'slides/view.html', {"fileName":fileName, "courseNum":courseNum, 'num': num, 'pageNum':page, 'comments':comments});
     except:
         raise Http404("Slides not found: " + 'slides/' + slide.fileName + '/' + slide.title + ' ' + str(page) +'.pdf')
 
