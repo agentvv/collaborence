@@ -4,6 +4,13 @@
 
 {% block content %}
 <h1>Welcome to the Collaborence home page.</h1>
-<p>Please register here</p>
-<a href="../register">Register</a>
+{% if user.is_authenticated %}
+    <p>You are logged in.</p>
+    <p>wanna logout?</p>
+    <a href="/logout">Do it here</a>
+{% else %}
+    <p>You are not logged in, you can login <a href="/login">here</a></p>
+{% endif %}
 {% endblock %}
+
+
