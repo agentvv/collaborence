@@ -5,9 +5,14 @@
 {% block content %}
 <h1>Welcome to the Collaborence home page.</h1>
 {% if user.is_authenticated %}
+    <h2>Hey there! You are logged in.</h2>
+    <p>Here are your courses:</p>
+    <!-- This will be where the users courses are listed. -->
+
+    <h2>Look for your school:</h2>
+    <p>List of schools can be found here: <a href="/schools">schools</a></p>
     <p>You are logged in.</p>
-    <p>wanna logout?</p>
-    <a href="/logout">Do it here</a>
+    <a href="/logout">Logout</a>
 {% else %}
     <p>You are not logged in, you can login <a href="/login">here</a></p>
 {% endif %}
