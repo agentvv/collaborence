@@ -2,6 +2,7 @@
 
 {% block content %}
     <h2>{{title}}</h2>
+    <a href="/slides/upload/{{num}}"> <h3> Add new slides </h3> </a>
     {% for elem in list %}
         <a href="/{{section}}/{{elem.id}}">{{elem}}</a> <br>
     {% endfor %}
