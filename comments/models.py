@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Comment(models.Model):
     description = models.CharField(max_length=200)
     timeCreated = models.DateTimeField(default=now, editable=False)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1) 
     
     def __str__(self):
         return (self.author.username + ' ' + str(self.timeCreated))

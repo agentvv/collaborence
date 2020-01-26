@@ -4,5 +4,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.newComment),
+    path('<int:num>', views.viewComment),
 ]
