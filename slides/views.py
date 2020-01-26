@@ -7,6 +7,6 @@ def view(response, num):
     try:
         slide = Slide.objects.get(pk=num)
         fileName = 'slides/' + slide.fileName
-        return render(response, 'slides/view.html', {"fileName":fileName});
+        return render(response, 'slides/view.html', {"fileName":fileName, "courseNum":num});
     except:
         raise Http404("Slides not found")

@@ -1,6 +1,7 @@
 {% extends "slides/base.html" %}
 {% load static %}
 {% block content %}
+<a href="/courses/{{courseNum}}"> <h2> Return to all slides </h2> </a>
 <object data="{% static fileName %}" width="800px" height="800px">
 </object>
 {% endblock %}
