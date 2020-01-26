@@ -7,4 +7,5 @@ def index(response):
     return render(response, "home/base.html", {})
 
 def home(response):
-    return render(response, "home/home.html", {})
+    userCourses = response.user.profile.courses.all()
+    return render(response, "home/home.html", {"courses":userCourses})
