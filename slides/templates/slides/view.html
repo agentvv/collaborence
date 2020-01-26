@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <a href="/courses/{{courseNum}}"> <h2> Return to all slides </h2> </a>
-<a href="/slides/{{num}}/{{pageNum|add:"-1"}}"><h3>Previous slide</h3></a> <a href="/slides/{{num}}/{{pageNum|add:"1"}}"><h3>Next slide</h3></a>
+<a href="/slides/{{num}}/{{prevPage}}"><h3>Previous slide</h3></a> <a href="/slides/{{num}}/{{nextPage}}"><h3>Next slide</h3></a>
 <object data="{% static fileName %}" width="800px" height="600px">
 </object>
 

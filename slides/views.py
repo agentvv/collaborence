@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import FileResponse, Http404, HttpResponse
 
-
+import os
 from django.http import HttpResponseRedirect
 from .forms import UploadSlideForm
 
@@ -19,7 +19,30 @@ def view(response, num, page):
         courseNum = slide.course.id
         fileName = 'slides/' + slide.fileName + '/' + slide.title + ' ' + str(page) +'.pdf'
         comments = Comment.objects.filter(slide=Slide.objects.get(id=num))
-        return render(response, 'slides/view.html', {"fileName":fileName, "courseNum":courseNum, 'num': num, 'pageNum':page, 'comments':comments});
+
+        if os.path.exists('slides/static/slides/' + slide.fileName + '/' + slide.title + ' ' + str(page-1) +'.pdf'):
+            prevPage = page-1
+        else:
+            files = os.listdir('slides/static/slides/' + slide.fileName)
+            files.sort()
+            ans = ''
+            add = False
+            for char in files[-1][-1:0:-1]:
+                if char == '.':
+                    add = True
+                elif char == ' ':
+                    break
+                elif add:
+                    ans = ans + char
+            ans = ans[::-1]
+            prevPage = int(ans)
+        
+        if os.path.exists('slides/static/slides/' + slide.fileName + '/' + slide.title + ' ' + str(page+1) +'.pdf'):
+            nextPage = page+1
+        else:
+            nextPage = 1
+            
+        return render(response, 'slides/view.html', {"fileName":fileName, "courseNum":courseNum, 'num': num, 'prevPage':prevPage, 'nextPage':nextPage, 'comments':comments});
     except:
         raise Http404("Slides not found: " + 'slides/' + slide.fileName + '/' + slide.title + ' ' + str(page) +'.pdf')
 
