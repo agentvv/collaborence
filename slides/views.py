@@ -42,7 +42,7 @@ def view(response, num, page):
         else:
             nextPage = 1
             
-        return render(response, 'slides/view.html', {"fileName":fileName, "courseNum":courseNum, 'num': num, 'prevPage':prevPage, 'nextPage':nextPage, 'comments':comments});
+        return render(response, 'slides/view.html', {"fileName":fileName, "courseNum":courseNum, 'num': num, 'pageNum':page, 'prevPage':prevPage, 'nextPage':nextPage, 'comments':comments});
     except:
         raise Http404("Slides not found: " + 'slides/' + slide.fileName + '/' + slide.title + ' ' + str(page) +'.pdf')
 
