@@ -1,9 +1,13 @@
 {% extends 'slides/base.html' %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Create reply</button>
-</form>
+<div class="jumbotron d-flex align-items-center min-vh-100">
+  <div class="container text-center">
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Create reply</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
