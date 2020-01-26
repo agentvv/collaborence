@@ -7,7 +7,12 @@
 </object>
 
 <a href="/comments/{{num}}/{{pageNum}}"><h5>Add a comment</h5></a>
+<hr>
 {% for comment in comments %}
-
+	<a href="/comments/viewComment/{{comment.id}}">
+		<p><em>{{comment.description}}</em><p>
+		<p>Author: {{comment.author}}</p>
+	</a>
+	<hr>
 {% endfor %}
 {% endblock %}
