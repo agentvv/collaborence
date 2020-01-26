@@ -1,8 +1,14 @@
+{% if user.is_authenticated %}
 <html>
     <head>
         <title>Slides Base Template</title>
     </head>
     <body>
-        <p>This is the slides base template.</p>
+        {% block content %}
+        {% endblock %}
     </body>
 </html>
+
+{% else %}
+<p> Please Login <a href="/login">Here</a> </p>
+{% endif %}
