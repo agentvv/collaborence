@@ -5,6 +5,7 @@
 {% block content %}
 <form method="POST">
     <h1>Enter your information to register as a new user!</h1>
+    {% csrf_token %}
     {{form}}
     <button type="submit">Register</button>
 </form>
