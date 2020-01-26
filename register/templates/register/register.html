@@ -6,7 +6,29 @@
 <form method="POST">
     <h1>Enter your information to register as a new user!</h1>
     {% csrf_token %}
-    {{form}}
+    {{form.email.label_tag}}
+    {{form.email}}
+    <br>
+    {{form.username.label_tag}}
+    {{form.username}}
+    {{form.username.help_text}}
+    <br>
+    {{form.first_name.label_tag}}
+    {{form.first_name}}
+    {{form.first_name.help_text}}
+    <br>
+    {{form.last_name.label_tag}}
+    {{form.last_name}}
+    {{form.last_name.help_text}}
+    <br>
+    {{form.password1.label_tag}}
+    {{form.password1}}
+    {{form.password1.help_text}}
+    <br>
+    {{form.password2.label_tag}}
+    {{form.password2}}
+    {{form.password2.help_text}}
+    <br>
     <button type="submit">Register</button>
 </form>
 {% endblock %}
