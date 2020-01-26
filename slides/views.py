@@ -18,7 +18,7 @@ def view(response, num, page):
         slide = Slide.objects.get(pk=num)
         courseNum = slide.course.id
         fileName = 'slides/' + slide.fileName + '/' + slide.title + ' ' + str(page) +'.pdf'
-        comments = Comment.objects.filter(slide=Slide.objects.get(id=num))
+        comments = Comment.objects.filter(slide=Slide.objects.get(id=num), page=page)
 
         if os.path.exists('slides/static/slides/' + slide.fileName + '/' + slide.title + ' ' + str(page-1) +'.pdf'):
             prevPage = page-1
