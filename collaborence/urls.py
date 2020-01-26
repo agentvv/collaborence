@@ -29,6 +29,7 @@ urlpatterns = [
     path('departments/<int:num>', courseViews.department),
     path('add/<int:num>', courseViews.add),
     path('courses/<int:num>', courseViews.course),
+    path('courses/createCourse/', courseViews.createCourse),
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
 ] 

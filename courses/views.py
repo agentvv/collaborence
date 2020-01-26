@@ -3,6 +3,7 @@ from django.http import FileResponse, Http404, HttpResponse
 
 from .models import Course, School, Department
 from slides.models import Slide
+from .forms import CourseForm
 
 def index(response):
     #course = course.objects.filter(department=)
@@ -39,3 +40,17 @@ def course(response, num):
     slides = Slide.objects.filter(course=Course.objects.get(id=num))
     section = "slides"
     return render(response, 'courses/slides.html', {"title":title, "list":slides, "section":section, 'num':num})
+
+def createCourse(response):
+    if response.method == 'POST':
+        form = CourseForm(response.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/home')
+    else:
+        form = CourseForm()
+    
+    return render(response, 'courses/createCourse.html', {'form':form})
+    
+
+

@@ -1,0 +1,10 @@
+{% extends 'slides/base.html' %}
+
+{% block content %}
+<h1>Create a new course</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Add Class</button>
+</form>
+{% endblock %}
