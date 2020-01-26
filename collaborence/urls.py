@@ -24,9 +24,13 @@ urlpatterns = [
     path('register/', include('register.urls')),
     path('slides/', include('slides.urls')),
     path('schools/', courseViews.schools),
+<<<<<<< HEAD
     path('schools/<int:num>/', courseViews.school),
     path('departments/<int:num>', courseViews.department),
     path('add/<int:num>', courseViews.add),
+=======
+    path('comments/', include('comments.urls')),
+>>>>>>> 962bc58412654469e6a0a35b0d4f83364b5bc6ed
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
 ] 

@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.http import FileResponse, Http404, HttpResponse
 
-# Create your views here.
+from .models import Comment
+
+def index(response):
+    #slides = Slide.objects.filter(course=)
+    return render(response, 'comments/base.html')

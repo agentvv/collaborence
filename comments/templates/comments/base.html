@@ -1,0 +1,17 @@
+<html>
+    <head>FUCKING COMMENTS</head>
+    <style>
+        .comment {
+            margin: 20px 0px 20px 20px;
+        }
+    </style>
+    <body>
+        <hr>
+        <a class="btn btn-default">Add Comment</a>
+        <div class="comment">
+            <div class="date">{{ comment.dateCreated }}</div>
+            <strong> {{ comment.author }}</strong>
+            <p>{{ comment.description|linebreaks }}</p>
+        </div>
+    </body>
+</html>
