@@ -19,7 +19,8 @@ from home import views
 
 urlpatterns = [
     path('', views.index),
-    path('slides/', include('slides.urls')),
     path('home/', views.home),
+    path('register/', include('register.urls')),
+    path('slides/', include('slides.urls')),
     path('admin/', admin.site.urls),
 ] 
