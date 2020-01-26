@@ -4,7 +4,7 @@ from .models import Comment, Reply
 class PartialCommentForm(ModelForm):
     class Meta:
         model = Comment
-        exclude = ['author']
+        exclude = ['author', 'page', 'slide']
 
 class PartialReplyForm(ModelForm):
     class Meta:

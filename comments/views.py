@@ -13,7 +13,7 @@ def newComment(request, num, num2):
         comment.slide = Slide.objects.get(id=num)
         comment.page = num2
         comment.save()
-        return redirect("/comments/"+str(comment.id))    
+        return redirect("/comments/viewComment/"+str(comment.id))    
     else:
         comment = PartialCommentForm()
         return render(request, 'comments/create.html', {'form':comment})
@@ -21,7 +21,7 @@ def newComment(request, num, num2):
 def viewComment(response, num):
     comment = Comment.objects.get(id=num)
     replies = Reply.objects.filter(comment=comment)
-    return render(response, 'comments/viewComment.html', {"comment":comment, "replies":replies})
+    return render(response, 'comments/viewComment.html', {"comment":comment, "replies":replies, "slide":comment.slide.id, "page":comment.page})
 
 def createReply(request, num):
     
@@ -31,7 +31,7 @@ def createReply(request, num):
         reply.author = request.user
         reply.comment = Comment.objects.get(id=num)
         reply.save()
-        return redirect('/comments/'+str(num))    
+        return redirect('/comments/viewComment/'+str(num))    
     else:
         reply = PartialCommentForm()
         return render(request, 'comments/createReply.html', {'form':reply})

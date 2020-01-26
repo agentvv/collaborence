@@ -4,6 +4,7 @@
 <h1>{{comment.description}}</h1>
 <p>Author: {{comment.author}}</p>
 <p><a href="/comments/createReply/{{comment.id}}">Reply to this comment</a></p>
+<p><a href="/slides/{{slide}}/{{page}}">Back to slide deck</a></p>
 <p>Here are all the previous replies:</p><br>
 
 {% for reply in replies %}
