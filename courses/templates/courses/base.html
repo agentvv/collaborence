@@ -1,0 +1,8 @@
+{% extends 'slides/base.html' %}
+
+{% block content %}
+    <h2>{{title}}</h2>
+    {% for elem in list %}
+        <a href="/{{section}}/{{elem.id}}">{{elem}}</a> <br>
+    {% endfor %}
+{% endblock %}
