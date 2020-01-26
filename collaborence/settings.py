@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
-    'schools.apps.SchoolsConfig',
     'courses.apps.CoursesConfig',
     'slides.apps.SlidesConfig',
     'django.contrib.admin',
