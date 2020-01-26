@@ -1,11 +1,12 @@
 <html>
     <head>
-        <title>Collaborence</title>
+        <title>{% block title %} Collaborence {% endblock %}</title>
     </head>
     <body>
-        <p>Collaborence base template</p>
         <div id="content" name="content">
             {% block content %}
+            <h1>Welcome to Collaborence Info Page</h1>
+            <a href="./home/">Go to our home page to read more</a>
             {% endblock %}
         </div>
   
