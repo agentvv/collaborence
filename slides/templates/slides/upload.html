@@ -8,6 +8,6 @@
     <button type="submit">Upload</button>
 </form>
 {% if failed %}
-<h3> That file already exists! </h3>
+<h3> {{message}} </h3>
 {% endif %}
 {% endblock %}

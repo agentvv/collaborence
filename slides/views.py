@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import FileResponse, Http404, HttpResponse
+from django.conf import settings
 
 import os
 from django.http import HttpResponseRedirect
@@ -72,7 +73,7 @@ def uploadSlide(request, num):
             try:
                 os.mkdir('./slides/static/slides/'+title)
             except:
-                return render(request,  'slides/upload.html', {'form': form, 'failed': True, 'course':courseCode, 'num':num})
+                return render(request,  'slides/upload.html', {'form': form, 'failed': True, 'message': 'Mkdir failed.', 'course':courseCode, 'num':num})
             
             try:
                 f = open(fileName, 'wb')
@@ -87,8 +88,8 @@ def uploadSlide(request, num):
                 
             return redirect("/home")
         else:
-            return render(request,  'slides/upload.html', {'form': form, 'failed': True, 'course':courseCode, 'num':num})
+            return render(request,  'slides/upload.html', {'form': form, 'failed': True, 'message': 'This form is invalid.', 'course':courseCode, 'num':num})
     else:
         form = UploadSlideForm()
         
-    return render(request, 'slides/upload.html', {'form': form, 'failed': False, 'course':courseCode, 'num':num})
+    return render(request, 'slides/upload.html', {'form': form, 'failed': False, 'message':'', 'course':courseCode, 'num':num})
